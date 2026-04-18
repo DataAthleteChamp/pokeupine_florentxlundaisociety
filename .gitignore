@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Pokeupine caches
+.pokeupine/
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+docs/
+
+# Environment / secrets
+.env
+.env.local
+*.pem
+*.key
+
+# PCI-DSS PDF (copyright — only ship text_layer.txt)
+*.pdf
+
+# Test / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+./docs/

@@ -1,0 +1,335 @@
+{
+  "manifest": {
+    "id": "pci-dss",
+    "version": "4.0.0",
+    "title": "Payment Card Industry Data Security Standard v4.0",
+    "source_url": "https://www.pcisecuritystandards.org/document_library/",
+    "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+    "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
+    "merkle_root": "5dcc516d6df1dce49670c090c432225da7e1608a84037d5b96835b9fb04aaa42",
+    "merkle_root_signature": "624094d293b0292ea5e12ad5090fbe9ccd170a42d96dfcfc9067d98f7dcbe7841e14602d099f47dbf1d5dc1555232d1f5092fd9710c85785d200dc7d59001a07",
+    "signing_key_id": "registry-2026",
+    "controls_count": 6,
+    "tests_count": 6
+  },
+  "controls": [
+    {
+      "id": "PCI-DSS-3.3.1",
+      "title": "Sensitive Authentication Data not stored after authorization",
+      "clause_text": "SAD is not retained after authorization, even if encrypted. All sensitive authentication data received is rendered unrecoverable upon completion of the authorization process.",
+      "requirement": "Never persist CVV/CVC. Delete SAD immediately after authorization.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
+        "extractor": "pymupdf-1.24.10",
+        "page": 47,
+        "byte_range": [
+          0,
+          174
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "a4822ba17cb4897a89aaeb37164f677c9e82dcb1e458fba04f8acd0f3256a666"
+          ],
+          [
+            "R",
+            "898c3ac0fb34af7a1e87e2bd3349fe932e3120400ffcd727714e45bfa187da76"
+          ],
+          [
+            "R",
+            "724150a10b82245287ecddd7ab49350006d85c3b7318f85041f9a5d857fe9ac3"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-3.5.1",
+      "title": "PAN is rendered unreadable anywhere it is stored",
+      "clause_text": "PAN is rendered unreadable anywhere it is stored by using any of the following approaches: One-way hashes based on strong cryptography of the entire PAN. Truncation. Index tokens. Strong cryptography with associated key-management processes and procedures.",
+      "requirement": "Tokenize PAN with a PCI-validated provider; store the token only.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
+        "extractor": "pymupdf-1.24.10",
+        "page": 52,
+        "byte_range": [
+          175,
+          431
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "30695c60ecd771cf77029dc64441317d17f6b7dc26f1c9d69fc8fa431892ad6d"
+          ],
+          [
+            "R",
+            "898c3ac0fb34af7a1e87e2bd3349fe932e3120400ffcd727714e45bfa187da76"
+          ],
+          [
+            "R",
+            "724150a10b82245287ecddd7ab49350006d85c3b7318f85041f9a5d857fe9ac3"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-4.2.1",
+      "title": "Strong cryptography for PAN in transit over open, public networks",
+      "clause_text": "PAN is secured with strong cryptography whenever it is sent via end-user messaging technologies. Strong cryptography is used to safeguard PAN during transmission over open, public networks.",
+      "requirement": "Use HTTPS (TLS 1.2+) for all PAN transmission. Never send PAN over cleartext HTTP.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
+        "extractor": "pymupdf-1.24.10",
+        "page": 61,
+        "byte_range": [
+          432,
+          621
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "54359cd3205274edea5abd96de1485d67bba362a1e7e99d2079e70a3f0f807f8"
+          ],
+          [
+            "L",
+            "bba72f78b826b5fe82721f4fb8c2db09e423b2f3cf759eb5e3770fb6c697dbed"
+          ],
+          [
+            "R",
+            "724150a10b82245287ecddd7ab49350006d85c3b7318f85041f9a5d857fe9ac3"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-8.3.6",
+      "title": "Passwords/passphrases meet minimum complexity requirements",
+      "clause_text": "If passwords/passphrases are used as an authentication factor, they meet the following minimum level of complexity: A minimum length of 12 characters (or if the system does not support 12 characters, a minimum length of eight characters). Contain both numeric and alphabetic characters.",
+      "requirement": "Set minimum password length to 12 or greater.",
+      "severity": "medium",
+      "provenance": {
+        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
+        "extractor": "pymupdf-1.24.10",
+        "page": 112,
+        "byte_range": [
+          622,
+          908
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "c86cf565f437dfc55b2ce69f5213879abcb84394778b0d7ffb1fe3b4c41b48f7"
+          ],
+          [
+            "L",
+            "bba72f78b826b5fe82721f4fb8c2db09e423b2f3cf759eb5e3770fb6c697dbed"
+          ],
+          [
+            "R",
+            "724150a10b82245287ecddd7ab49350006d85c3b7318f85041f9a5d857fe9ac3"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.1",
+      "title": "Audit logs capture all individual user access to cardholder data",
+      "clause_text": "Audit logs are enabled and active for all system components. All individual user accesses to cardholder data are logged. All actions taken by any individual with root or administrative privileges are logged.",
+      "requirement": "Add audit logging to all functions handling cardholder data.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
+        "extractor": "pymupdf-1.24.10",
+        "page": 135,
+        "byte_range": [
+          909,
+          1116
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "3f239fe2cfc461bf58d4192e28e44e3aec1ef4822f0b36f2e5a1aee65886fd69"
+          ],
+          [
+            "R",
+            "648103ade51de89a4d63ce5ca63e4514afdfc849e2ea9b9949c5e11f9c16b35f"
+          ],
+          [
+            "L",
+            "81fcb511bca2c5eb67994ee0809f5d3628da7db4e00e58886eb38bbf99e69747"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-6.2.4",
+      "title": "Software engineering techniques prevent common coding vulnerabilities",
+      "clause_text": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities in bespoke and custom software. Software is reviewed to confirm it does not contain common coding vulnerabilities.",
+      "requirement": "Document SAST/code review process in SECURITY.md.",
+      "severity": "medium",
+      "provenance": {
+        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
+        "extractor": "pymupdf-1.24.10",
+        "page": 85,
+        "byte_range": [
+          1117,
+          1412
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "b61eba65303d80b8e61dd2c807f594cec0f268a103c3838b39667fbdddeef76c"
+          ],
+          [
+            "R",
+            "648103ade51de89a4d63ce5ca63e4514afdfc849e2ea9b9949c5e11f9c16b35f"
+          ],
+          [
+            "L",
+            "81fcb511bca2c5eb67994ee0809f5d3628da7db4e00e58886eb38bbf99e69747"
+          ]
+        ]
+      }
+    }
+  ],
+  "tests": [
+    {
+      "id": "PCI-DSS-3.3.1::no-sad-storage",
+      "control_id": "PCI-DSS-3.3.1",
+      "kind": "dataflow",
+      "spec": {
+        "sources": {
+          "sad_field": [
+            {
+              "kind": "pydantic_field",
+              "class_in": [
+                "Order",
+                "Payment",
+                "Card",
+                "Transaction"
+              ],
+              "field_name_regex": "^(cvv|cvc|cvv2|csc)$"
+            }
+          ]
+        },
+        "sinks": {
+          "storage": [
+            {
+              "kind": "call",
+              "qualified_name_regex": "(db|session|cursor)\\.execute"
+            },
+            {
+              "kind": "call",
+              "qualified_name_regex": "\\.save\\("
+            }
+          ]
+        },
+        "sanitizers": []
+      },
+      "target_globs": [
+        "**/*.py"
+      ]
+    },
+    {
+      "id": "PCI-DSS-3.5.1::pan-unreadable",
+      "control_id": "PCI-DSS-3.5.1",
+      "kind": "dataflow",
+      "spec": {
+        "sources": {
+          "pan_typed": [
+            {
+              "kind": "pydantic_field",
+              "class_in": [
+                "Order",
+                "Payment",
+                "Card",
+                "Transaction"
+              ],
+              "field_name_regex": "^(card_number|pan|cc(_num)?)$"
+            }
+          ]
+        },
+        "sinks": {
+          "storage": [
+            {
+              "kind": "call",
+              "qualified_name_regex": "(db|session|cursor)\\.execute"
+            },
+            {
+              "kind": "call",
+              "qualified_name_regex": "\\.save\\("
+            }
+          ]
+        },
+        "sanitizers": [
+          {
+            "kind": "call",
+            "qualified_name_regex": "^(tokenize|vault\\.store|mask_pan)$"
+          }
+        ]
+      },
+      "target_globs": [
+        "**/*.py"
+      ]
+    },
+    {
+      "id": "PCI-DSS-4.2.1::strong-crypto-transit",
+      "control_id": "PCI-DSS-4.2.1",
+      "kind": "ast_check",
+      "spec": {
+        "check_type": "cleartext_http"
+      },
+      "target_globs": [
+        "**/*.py"
+      ]
+    },
+    {
+      "id": "PCI-DSS-8.3.6::password-length",
+      "control_id": "PCI-DSS-8.3.6",
+      "kind": "ast_check",
+      "spec": {
+        "check_type": "weak_password_policy"
+      },
+      "target_globs": [
+        "**/*.py"
+      ]
+    },
+    {
+      "id": "PCI-DSS-10.2.1::audit-log-required",
+      "control_id": "PCI-DSS-10.2.1",
+      "kind": "decorator_required",
+      "spec": {
+        "required_decorator": "audit_log",
+        "target_decorator_regex": "@app\\.(post|put|patch|delete)",
+        "target_param_type": ""
+      },
+      "target_globs": [
+        "**/*.py"
+      ]
+    },
+    {
+      "id": "PCI-DSS-6.2.4::sast-in-ci",
+      "control_id": "PCI-DSS-6.2.4",
+      "kind": "llm_judge",
+      "spec": {
+        "check_type": "file_exists",
+        "required_files": [
+          "SECURITY.md"
+        ],
+        "description": "code review process",
+        "remediation": "Create a SECURITY.md documenting your SAST/code review process."
+      },
+      "target_globs": [
+        "**/*.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pokeupine"
+version = "0.1.0"
+description = "Compliance-as-Code CLI with proof-carrying regulation packs"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.9",
+    "rich>=13.0",
+    "pydantic>=2.0",
+    "pymupdf>=1.24,<1.25",
+    "tree-sitter>=0.23",
+    "tree-sitter-python>=0.23",
+    "litellm>=1.0",
+    "diskcache>=5.6",
+    "cryptography>=41.0",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov",
+    "ruff",
+]
+
+[project.scripts]
+pokeupine = "pokeupine.cli:app"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
