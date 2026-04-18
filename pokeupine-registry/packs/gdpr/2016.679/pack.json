@@ -1,0 +1,173 @@
+{
+  "manifest": {
+    "id": "gdpr",
+    "version": "2016.679",
+    "title": "General Data Protection Regulation (Regulation (EU) 2016/679)",
+    "source_url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+    "source_doc_sha256": "18e6c90c505143021c086d72fb93ac898ba2e078e2f1b8236e8ce2ff237c052c",
+    "text_layer_sha256": "3dcbf412867bb2478e6635a468c2013f0eac2c658c78dd248f43680ba29f0bca",
+    "merkle_root": "da0e5449b4e39ee70f640454215b50e395e9d86d6746e0db7b350f0902f6a667",
+    "merkle_root_signature": "674676b51b3771b58e5a33d2f5110b96b97dcf818767423d638e1e8aab8ca85e918dacc3866c812f9b6a7ceaa7b71e270b7670d88356d37fb091a9f104878301",
+    "signing_key_id": "registry-2026",
+    "controls_count": 5,
+    "tests_count": 0
+  },
+  "controls": [
+    {
+      "id": "GDPR-ART-5",
+      "title": "Lawfulness, fairness and transparency",
+      "clause_text": "processed lawfully, fairly and in a transparent manner in relation to the data subject ('lawfulness, fairness and transparency')",
+      "requirement": "Personal data must be processed in a lawful, fair and transparent manner with respect to the data subject",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "18e6c90c505143021c086d72fb93ac898ba2e078e2f1b8236e8ce2ff237c052c",
+        "text_layer_sha256": "3dcbf412867bb2478e6635a468c2013f0eac2c658c78dd248f43680ba29f0bca",
+        "extractor": "pymupdf-1.24.14",
+        "page": 5,
+        "byte_range": [
+          0,
+          128
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "6f30a8bcbcad6a6038be9a3396caebaca2a18b234ccf0f1da9914667cac5e03b"
+          ],
+          [
+            "R",
+            "539b3492357b86687b4a20aaa10c1e7c4ffe906d6d06a5ed5cec38a2d27319ff"
+          ],
+          [
+            "R",
+            "a266f454f45f7711ffc92c72232065dfa3a3228a83efe02ec14fc778d6d2d802"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "GDPR-ART-32",
+      "title": "Assess security risks in processing activities",
+      "clause_text": "In assessing the appropriate level of security account shall be taken in particular of the risks that are presented by processing, in particular from accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to personal data transmitted, stored or otherwise processed.",
+      "requirement": "Organizations must assess security risks specific to their processing activities, particularly risks of data destruction, loss, alteration, unauthorized disclosure, or access.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "18e6c90c505143021c086d72fb93ac898ba2e078e2f1b8236e8ce2ff237c052c",
+        "text_layer_sha256": "3dcbf412867bb2478e6635a468c2013f0eac2c658c78dd248f43680ba29f0bca",
+        "extractor": "pymupdf-1.24.14",
+        "page": 27,
+        "byte_range": [
+          69886,
+          70188
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "73c55e2e64f2c93bcdb9a5cc0cbd75d6e64ae61aaacc1af54f840fe178fee39d"
+          ],
+          [
+            "R",
+            "539b3492357b86687b4a20aaa10c1e7c4ffe906d6d06a5ed5cec38a2d27319ff"
+          ],
+          [
+            "R",
+            "a266f454f45f7711ffc92c72232065dfa3a3228a83efe02ec14fc778d6d2d802"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "GDPR-ART-33",
+      "title": "Controller notification to supervisory authority within 72 hours",
+      "clause_text": "In the case of a personal data breach, the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority competent in accordance with Article 55, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons.",
+      "requirement": "Controllers must notify the supervisory authority of personal data breaches within 72 hours of becoming aware of them, unless the breach is unlikely to pose risks to individuals' rights and freedoms.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "18e6c90c505143021c086d72fb93ac898ba2e078e2f1b8236e8ce2ff237c052c",
+        "text_layer_sha256": "3dcbf412867bb2478e6635a468c2013f0eac2c658c78dd248f43680ba29f0bca",
+        "extractor": "pymupdf-1.24.14",
+        "page": 28,
+        "byte_range": [
+          70849,
+          71219
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "7845295cad8170098ad924595a9c61888a872fe33e0a06104d76384b1f68b618"
+          ],
+          [
+            "L",
+            "5ad713725ee59094cbee6a32ff9168edd39b7e8dc8e23306b6efa17e9a4a8189"
+          ],
+          [
+            "R",
+            "a266f454f45f7711ffc92c72232065dfa3a3228a83efe02ec14fc778d6d2d802"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "GDPR-ART-34",
+      "title": "Communicate high-risk data breaches to data subjects",
+      "clause_text": "When the personal data breach is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall communicate the personal data breach to the data subject without undue delay.",
+      "requirement": "Controllers must notify data subjects without undue delay when a personal data breach is likely to result in high risk to their rights and freedoms.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "18e6c90c505143021c086d72fb93ac898ba2e078e2f1b8236e8ce2ff237c052c",
+        "text_layer_sha256": "3dcbf412867bb2478e6635a468c2013f0eac2c658c78dd248f43680ba29f0bca",
+        "extractor": "pymupdf-1.24.14",
+        "page": 29,
+        "byte_range": [
+          72701,
+          72911
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "b18c7952697adf8821876ed83f244199c51f9ca04965a8cf253f21c61242f8eb"
+          ],
+          [
+            "L",
+            "5ad713725ee59094cbee6a32ff9168edd39b7e8dc8e23306b6efa17e9a4a8189"
+          ],
+          [
+            "R",
+            "a266f454f45f7711ffc92c72232065dfa3a3228a83efe02ec14fc778d6d2d802"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "GDPR-ART-25",
+      "title": "Data protection by design and by default",
+      "clause_text": "Taking into account the state of the art, the cost of implementation and the nature, scope, context and purposes of processing as well as the risks of varying likelihood and severity for rights and freedoms of natural persons posed by the processing, the controller shall, both at the time of the determination of the means for processing and at the time of the processing itself, implement appropriate technical and organisational measures, such as pseudonymisation, which are designed to implement data-protection principles, such as data minimisation, in an effective manner and to integrate the necessary safeguards into the processing.",
+      "requirement": "Design systems with privacy as default; pseudonymise where feasible.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "18e6c90c505143021c086d72fb93ac898ba2e078e2f1b8236e8ce2ff237c052c",
+        "text_layer_sha256": "3dcbf412867bb2478e6635a468c2013f0eac2c658c78dd248f43680ba29f0bca",
+        "extractor": "pymupdf-1.24.14",
+        "page": 0,
+        "byte_range": [
+          0,
+          640
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "2fd5044037c889c4dd0b5798e2bd46835a368185c69d7a4f320569563af72da0"
+          ],
+          [
+            "R",
+            "95ac6cc9e31282261f9651ca41f3717c5f5fb7219e9b751dadac0fb324744e03"
+          ],
+          [
+            "L",
+            "0dd9255b5f889d95abe50f58e366f0fb249c76e70eaf8321644350e1c1853a93"
+          ]
+        ]
+      }
+    }
+  ],
+  "tests": []
+}

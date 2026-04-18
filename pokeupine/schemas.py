@@ -34,7 +34,7 @@ class Provenance(BaseModel):
 class Control(BaseModel):
     """A single compliance control extracted from a regulation."""
 
-    id: str  # "PCI-DSS-3.3.1"
+    id: str  # regulation-native control id, e.g. "PCI-DSS-3.3.1" or "GDPR-Art32"
     title: str
     clause_text: str  # verbatim substring of text_layer
     requirement: str  # plain-English summary
@@ -47,7 +47,7 @@ class TestCase(BaseModel):
 
     __test__ = False  # prevent pytest collection
 
-    id: str  # "PCI-DSS-3.3.1::no-cvv-storage"
+    id: str  # "<control-id>::<short-slug>", e.g. "PCI-DSS-3.3.1::no-cvv-storage"
     control_id: str
     kind: TestKind
     spec: dict  # kind-specific payload (sources/sinks/patterns)
@@ -70,8 +70,8 @@ class Finding(BaseModel):
 class PackManifest(BaseModel):
     """Metadata for a signed regulation pack."""
 
-    id: str = "pci-dss"
-    version: str = "4.0.0"
+    id: str  # pack identifier, e.g. "pci-dss" or "gdpr"
+    version: str  # semantic or regulation-native version, e.g. "4.0.0"
     title: str
     source_url: str
     source_doc_sha256: str

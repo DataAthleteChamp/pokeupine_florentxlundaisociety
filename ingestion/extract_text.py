@@ -1,4 +1,4 @@
-"""Extract text layer from PCI-DSS PDF using PyMuPDF.
+"""Extract a deterministic text layer from a regulation PDF using PyMuPDF.
 
 Produces a frozen text_layer.txt file with deterministic page separators.
 All byte offsets in Provenance objects reference this file, not the PDF.
@@ -79,9 +79,15 @@ def save_text_layer(full_text: str, output_dir: Path | None = None) -> tuple[Pat
 
 
 if __name__ == "__main__":
+    import sys
+
     from ingestion.fetch import fetch
 
-    pdf_path, doc_sha = fetch()
+    if len(sys.argv) != 2:
+        print("Usage: python -m ingestion.extract_text <path/to/regulation.pdf>")
+        sys.exit(1)
+
+    pdf_path, doc_sha = fetch(Path(sys.argv[1]))
     print(f"Extracting text from {pdf_path}...")
 
     full_text, pages = extract_text(pdf_path)

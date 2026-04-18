@@ -85,7 +85,10 @@ class AstCheckEngine:
                             file=rel_path,
                             line=line,
                             evidence=f'requests call using cleartext HTTP: {url}',
-                            remediation="Use HTTPS (TLS 1.2+) for all PAN transmission.",
+                            remediation=test.spec.get(
+                                "remediation",
+                                "Use HTTPS (TLS 1.2+) for all regulated data in transit.",
+                            ),
                             confidence=1.0,
                         )
                     )
@@ -95,12 +98,19 @@ class AstCheckEngine:
     def _check_weak_password(
         self, tree, source_bytes: bytes, rel_path: str, test: TestCase,
     ) -> list[Finding]:
-        """Find password min_length < 12.
+        """Find password ``min_length`` below the threshold supplied by the test spec.
 
-        Handles both keyword arguments (min_length=8) and typed class
-        field assignments (min_length: int = 8).
+        Spec keys (all optional):
+            ``min_length``  – integer threshold; default 12.
+            ``remediation`` – pack-supplied remediation string.
+
+        Handles keyword arguments, plain assignments, and typed class fields.
         """
         findings: list[Finding] = []
+        threshold = int(test.spec.get("min_length", 12))
+        remediation = test.spec.get("remediation") or (
+            f"Set minimum password length to {threshold} or greater per {test.control_id}."
+        )
 
         for node in _walk_all(tree.root_node):
             if node.type in ("assignment", "keyword_argument"):
@@ -111,7 +121,7 @@ class AstCheckEngine:
                 match = re.search(r'min_length\s*(?::\s*\w+\s*)?=\s*(\d+)', text)
                 if match:
                     value = int(match.group(1))
-                    if value < 12:
+                    if value < threshold:
                         line = node.start_point[0] + 1
                         findings.append(
                             Finding(
@@ -120,8 +130,11 @@ class AstCheckEngine:
                                 status="fail",
                                 file=rel_path,
                                 line=line,
-                                evidence=f"min_length={value} in password validator (PCI requires ≥12)",
-                                remediation="Set minimum password length to 12 or greater per PCI-DSS 8.3.6.",
+                                evidence=(
+                                    f"min_length={value} in password validator "
+                                    f"({test.control_id} requires ≥{threshold})"
+                                ),
+                                remediation=remediation,
                                 confidence=1.0,
                             )
                         )

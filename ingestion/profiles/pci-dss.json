@@ -1,0 +1,144 @@
+{
+  "pack_id": "pci-dss",
+  "pack_version": "4.0.0",
+  "pack_title": "Payment Card Industry Data Security Standard v4.0",
+  "source_url": "https://www.pcisecuritystandards.org/document_library/",
+  "pdf_path": "PCI-DSS-v4_0_1.pdf",
+  "heading_regex": "^(\\d+\\.\\d+(?:\\.\\d+)?)\\s+",
+  "id_template": "PCI-DSS-{heading}",
+  "id_regex": "^PCI-DSS-\\d+\\.\\d+(\\.\\d+){0,2}$",
+  "prompt_regulation_name": "the PCI-DSS v4.0 standard",
+  "prompt_id_example": "PCI-DSS-3.3.1",
+  "target_headings": ["3.3", "3.4", "3.5", "4.2", "6.2", "8.3", "10.2"],
+  "registry_path": "packs/pci-dss/4.0.0",
+  "tests": [
+    {
+      "id": "PCI-DSS-3.3.1::no-sad-storage",
+      "control_id": "PCI-DSS-3.3.1",
+      "kind": "dataflow",
+      "spec": {
+        "sources": {
+          "sad_field": [{
+            "kind": "pydantic_field",
+            "class_in": ["Order", "Payment", "Card", "Transaction"],
+            "field_name_regex": "^(cvv|cvc|cvv2|csc)$"
+          }]
+        },
+        "sinks": {
+          "storage": [
+            {"kind": "call", "qualified_name_regex": "(db|session|cursor)\\.execute"},
+            {"kind": "call", "qualified_name_regex": "\\.save\\("}
+          ]
+        },
+        "sanitizers": []
+      },
+      "target_globs": ["**/*.py"]
+    },
+    {
+      "id": "PCI-DSS-3.5.1::pan-unreadable",
+      "control_id": "PCI-DSS-3.5.1",
+      "kind": "dataflow",
+      "spec": {
+        "sources": {
+          "pan_typed": [{
+            "kind": "pydantic_field",
+            "class_in": ["Order", "Payment", "Card", "Transaction"],
+            "field_name_regex": "^(card_number|pan|cc(_num)?)$"
+          }]
+        },
+        "sinks": {
+          "storage": [
+            {"kind": "call", "qualified_name_regex": "(db|session|cursor)\\.execute"},
+            {"kind": "call", "qualified_name_regex": "\\.save\\("}
+          ]
+        },
+        "sanitizers": [
+          {"kind": "call", "qualified_name_regex": "^(tokenize|vault\\.store|mask_pan)$"}
+        ],
+        "detect_pan_literals": true
+      },
+      "target_globs": ["**/*.py"]
+    },
+    {
+      "id": "PCI-DSS-4.2.1::strong-crypto-transit",
+      "control_id": "PCI-DSS-4.2.1",
+      "kind": "ast_check",
+      "spec": {"check_type": "cleartext_http"},
+      "target_globs": ["**/*.py"]
+    },
+    {
+      "id": "PCI-DSS-8.3.6::password-length",
+      "control_id": "PCI-DSS-8.3.6",
+      "kind": "ast_check",
+      "spec": {"check_type": "weak_password_policy"},
+      "target_globs": ["**/*.py"]
+    },
+    {
+      "id": "PCI-DSS-10.2.1::audit-log-required",
+      "control_id": "PCI-DSS-10.2.1",
+      "kind": "decorator_required",
+      "spec": {
+        "required_decorator": "audit_log",
+        "target_decorator_regex": "@app\\.(post|put|patch|delete)",
+        "target_param_type": ""
+      },
+      "target_globs": ["**/*.py"]
+    },
+    {
+      "id": "PCI-DSS-6.2.4::sast-in-ci",
+      "control_id": "PCI-DSS-6.2.4",
+      "kind": "llm_judge",
+      "spec": {
+        "check_type": "llm_assess",
+        "filename": "SECURITY.md",
+        "question": "Does this SECURITY.md credibly describe a SAST-in-CI process satisfying PCI-DSS 6.2.4? Reply with one word: PASS or UNCERTAIN.",
+        "remediation": "Expand SECURITY.md to describe SAST tooling, frequency, and CI gating."
+      },
+      "target_globs": ["**/*.py"]
+    }
+  ],
+  "fallback_controls": [
+    {
+      "id": "PCI-DSS-3.3.1",
+      "title": "Sensitive Authentication Data not stored after authorization",
+      "clause_text": "SAD is not retained after authorization, even if encrypted. All sensitive authentication data received is rendered unrecoverable upon completion of the authorization process.",
+      "requirement": "Never persist CVV/CVC. Delete SAD immediately after authorization.",
+      "severity": "critical"
+    },
+    {
+      "id": "PCI-DSS-3.5.1",
+      "title": "PAN is rendered unreadable anywhere it is stored",
+      "clause_text": "PAN is rendered unreadable anywhere it is stored by using any of the following approaches: One-way hashes based on strong cryptography of the entire PAN. Truncation. Index tokens. Strong cryptography with associated key-management processes and procedures.",
+      "requirement": "Tokenize PAN with a PCI-validated provider; store the token only.",
+      "severity": "critical"
+    },
+    {
+      "id": "PCI-DSS-4.2.1",
+      "title": "Strong cryptography for PAN in transit over open, public networks",
+      "clause_text": "PAN is secured with strong cryptography whenever it is sent via end-user messaging technologies. Strong cryptography is used to safeguard PAN during transmission over open, public networks.",
+      "requirement": "Use HTTPS (TLS 1.2+) for all PAN transmission.",
+      "severity": "high"
+    },
+    {
+      "id": "PCI-DSS-8.3.6",
+      "title": "Passwords/passphrases meet minimum complexity requirements",
+      "clause_text": "If passwords/passphrases are used as an authentication factor, they meet the following minimum level of complexity: A minimum length of 12 characters.",
+      "requirement": "Set minimum password length to 12 or greater.",
+      "severity": "medium"
+    },
+    {
+      "id": "PCI-DSS-10.2.1",
+      "title": "Audit logs capture all individual user access to cardholder data",
+      "clause_text": "Audit logs are enabled and active for all system components. All individual user accesses to cardholder data are logged.",
+      "requirement": "Add audit logging to all functions handling cardholder data.",
+      "severity": "high"
+    },
+    {
+      "id": "PCI-DSS-6.2.4",
+      "title": "Software engineering techniques prevent common coding vulnerabilities",
+      "clause_text": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities in bespoke and custom software.",
+      "requirement": "Document SAST/code review process in SECURITY.md.",
+      "severity": "medium"
+    }
+  ]
+}

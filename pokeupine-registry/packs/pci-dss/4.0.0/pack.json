@@ -7,7 +7,7 @@
     "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
     "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
     "merkle_root": "5f1c13761bacafef0bfa6a0392c86f3eff7d50a3835ab3ee736bfc229fbb520a",
-    "merkle_root_signature": "32999ce826a220169ed95a5cdba5db7db6285c7f401c210634f4e378db2ab6a6eb4db3c6990bf6bfa1c12590f8fdf78d94b73c16049280d1e7b8139f8052170b",
+    "merkle_root_signature": "cc1d25d11dc26ede2d198bc16bf23d6077165b1da84d32d80826865be3f8301ba399fc8177bc29d03b17146ef9b1cdfc55114964b72a7a3a23f9600b106c6100",
     "signing_key_id": "registry-2026",
     "controls_count": 36,
     "tests_count": 6

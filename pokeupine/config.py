@@ -22,7 +22,7 @@ REGISTRY_BASE_URL = os.environ.get("POKEUPINE_REGISTRY_URL", _DEFAULT_REGISTRY_U
 
 # Hard-coded registry public key (ed25519, hex-encoded)
 # Generated once; the private key is used only during ingestion/signing
-REGISTRY_PUBLIC_KEY_HEX = "fb1b999d78d89f1f959467862db62c68dcfd9df22f98d8521f4192e197f480c7"
+REGISTRY_PUBLIC_KEY_HEX = "e42ab698be9295ab4778543baeb688f0ce7d37e7acb2d4c3dad67a9421c6408f"
 
 
 def ensure_dirs() -> None:

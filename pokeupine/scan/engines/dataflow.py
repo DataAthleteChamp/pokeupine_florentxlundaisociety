@@ -336,7 +336,7 @@ class DataflowEngine:
                         test_id=test.id, control_id=test.control_id,
                         status="fail", file=rel_path, line=line,
                         evidence=evidence,
-                        remediation=self._remediation(test.control_id),
+                        remediation=self._remediation(test),
                         confidence=1.0,
                     ))
 
@@ -352,7 +352,7 @@ class DataflowEngine:
                             test_id=test.id, control_id=test.control_id,
                             status="fail", file=rel_path, line=lit_line,
                             evidence=evidence,
-                            remediation=self._remediation(test.control_id),
+                            remediation=self._remediation(test),
                             confidence=1.0,
                         ))
 
@@ -424,13 +424,14 @@ class DataflowEngine:
                         status="fail", file=rel_path, line=lit_line,
                         evidence=f"Luhn-valid PAN literal '{pan[:6]}...{pan[-4:]}' "
                                  f"→ {qname}(...)",
-                        remediation=self._remediation(test.control_id),
+                        remediation=self._remediation(test),
                         confidence=1.0,
                     ))
         return findings
 
-    def _remediation(self, control_id: str) -> str:
-        return {
-            "PCI-DSS-3.3.1": "Never persist CVV/CVC. Delete SAD immediately after authorization.",
-            "PCI-DSS-3.5.1": "Tokenize PAN with a PCI-validated provider; store the token only.",
-        }.get(control_id, "Review the finding and apply appropriate controls.")
+    def _remediation(self, test: TestCase) -> str:
+        """Pack-supplied remediation wins; otherwise fall back to a generic note."""
+        spec_remediation = test.spec.get("remediation")
+        if isinstance(spec_remediation, str) and spec_remediation.strip():
+            return spec_remediation
+        return "Review the finding and apply the relevant control's remediation guidance."

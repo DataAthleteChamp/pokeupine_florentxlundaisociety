@@ -61,6 +61,8 @@ def test_test_case():
 
 def test_pack_manifest():
     m = PackManifest(
+        id="pci-dss",
+        version="4.0.0",
         title="PCI-DSS",
         source_url="https://example.com/pci-dss.pdf",
         source_doc_sha256="a" * 64,
@@ -78,6 +80,8 @@ def test_pack_manifest():
 def test_pack():
     p = Pack(
         manifest=PackManifest(
+            id="pci-dss",
+            version="4.0.0",
             title="PCI-DSS",
             source_url="https://example.com",
             source_doc_sha256="a" * 64,

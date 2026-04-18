@@ -190,7 +190,7 @@ def explain(
 
     console.print()
     console.print(
-        f"PCI-DSS v{pack.manifest.version}   §{control.id.split('-')[-1]}   "
+        f"{pack.manifest.id.upper()} v{pack.manifest.version}   §{control.id.split('-')[-1]}   "
         f"page {control.provenance.page}   [{color}][{control.severity}][/{color}]"
     )
     console.print()

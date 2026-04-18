@@ -1,12 +1,13 @@
-"""Fetch and hash the PCI-DSS PDF source document."""
+"""Fetch and hash a regulation source PDF.
+
+Pipeline-agnostic: the caller (build_pack via a RegulationProfile) supplies
+the PDF path. No regulation-specific defaults live here.
+"""
 
 from __future__ import annotations
 
 import hashlib
 from pathlib import Path
-
-# Default location of the PDF in the project root
-DEFAULT_PDF_PATH = Path(__file__).parent.parent / "PCI-DSS-v4_0_1.pdf"
 
 
 def hash_file(path: Path) -> str:
@@ -18,25 +19,32 @@ def hash_file(path: Path) -> str:
     return h.hexdigest()
 
 
-def fetch(pdf_path: Path | None = None) -> tuple[Path, str]:
-    """Locate the PCI-DSS PDF and compute its hash.
+def fetch(pdf_path: Path) -> tuple[Path, str]:
+    """Locate a regulation PDF and compute its SHA-256.
 
     Args:
-        pdf_path: Path to the PDF file (default: project root)
+        pdf_path: Absolute path to the PDF.
 
     Returns:
         (pdf_path, source_doc_sha256)
     """
-    path = pdf_path or DEFAULT_PDF_PATH
-    if not path.exists():
-        raise FileNotFoundError(f"PCI-DSS PDF not found at {path}")
+    if pdf_path is None:
+        raise ValueError("fetch() requires an explicit pdf_path (no defaults)")
+    if not pdf_path.exists():
+        raise FileNotFoundError(f"PDF not found at {pdf_path}")
 
-    sha256 = hash_file(path)
-    return path, sha256
+    sha256 = hash_file(pdf_path)
+    return pdf_path, sha256
 
 
 if __name__ == "__main__":
-    path, sha = fetch()
+    import sys
+
+    if len(sys.argv) != 2:
+        print("Usage: python -m ingestion.fetch <path/to/regulation.pdf>")
+        sys.exit(1)
+
+    path, sha = fetch(Path(sys.argv[1]))
     print(f"PDF: {path}")
     print(f"SHA-256: {sha}")
     print(f"Size: {path.stat().st_size:,} bytes")
