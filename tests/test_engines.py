@@ -2,7 +2,6 @@
 
 from pathlib import Path
 
-import pytest
 
 from pokeupine.schemas import TestCase
 
@@ -256,7 +255,7 @@ class TestDecoratorEngine:
 
 
 class TestLlmJudgeEngine:
-    def test_missing_security_md(self):
+    def test_missing_security_md(self, tmp_path):
         """LLM judge should detect missing SECURITY.md."""
         from pokeupine.scan.engines.llm_judge import LlmJudgeEngine
 
@@ -273,7 +272,7 @@ class TestLlmJudgeEngine:
         )
 
         engine = LlmJudgeEngine()
-        findings = engine.run(test, [], DEMO_APP)
+        findings = engine.run(test, [], tmp_path)
 
         assert len(findings) >= 1
         assert findings[0].status == "uncertain"
@@ -281,7 +280,6 @@ class TestLlmJudgeEngine:
 
     def test_llm_assess_calls_gateway(self, monkeypatch, tmp_path):
         """llm_assess check_type must invoke pokeupine.llm.llm_complete."""
-        from pokeupine.scan.engines import llm_judge as judge_mod
         from pokeupine.scan.engines.llm_judge import LlmJudgeEngine
 
         doc = tmp_path / "SECURITY.md"

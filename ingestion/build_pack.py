@@ -9,7 +9,6 @@ It runs the full pipeline: fetch → extract → chunk → LLM extract → valid
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -64,7 +63,8 @@ TEST_SPECS = [
             },
             "sanitizers": [
                 {"kind": "call", "qualified_name_regex": r"^(tokenize|vault\.store|mask_pan)$"}
-            ]
+            ],
+            "detect_pan_literals": True
         },
         "target_globs": ["**/*.py"],
     },
@@ -98,10 +98,13 @@ TEST_SPECS = [
         "control_id": "PCI-DSS-6.2.4",
         "kind": "llm_judge",
         "spec": {
-            "check_type": "file_exists",
-            "required_files": ["SECURITY.md"],
-            "description": "code review process",
-            "remediation": "Create a SECURITY.md documenting your SAST/code review process."
+            "check_type": "llm_assess",
+            "filename": "SECURITY.md",
+            "question": (
+                "Does this SECURITY.md credibly describe a SAST-in-CI process "
+                "satisfying PCI-DSS 6.2.4? Reply with one word: PASS or UNCERTAIN."
+            ),
+            "remediation": "Expand SECURITY.md to describe SAST tooling, frequency, and CI gating."
         },
         "target_globs": ["**/*.py"],
     },
@@ -306,7 +309,7 @@ def build_pack(
     print(f"  {len(controls_with_provenance)} controls, {len(tests)} tests")
     print(f"  Merkle root: {merkle_root[:16]}...")
     print(f"  Signed by: {public_key_hex[:16]}...")
-    print(f"\n  UPDATE pokeupine/config.py with:")
+    print("\n  UPDATE pokeupine/config.py with:")
     print(f'  REGISTRY_PUBLIC_KEY_HEX = "{public_key_hex}"')
 
 

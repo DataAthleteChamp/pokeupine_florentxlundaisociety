@@ -136,7 +136,6 @@ def explain(
     """Show a control's clause text with Merkle proof verification."""
     import json
 
-    from pokeupine.config import PACKS_DIR
     from pokeupine.crypto import verify_signature
     from pokeupine.merkle import leaf_hash, verify_proof
 
@@ -161,7 +160,6 @@ def explain(
         raise typer.Exit(1)
 
     from rich.panel import Panel
-    from rich.text import Text
 
     # Verify Merkle proof
     leaf = leaf_hash(control.clause_text)

@@ -36,7 +36,6 @@ def chunk_text(full_text: str, pages: list[PageInfo]) -> list[Chunk]:
     Returns:
         List of Chunk objects with byte ranges
     """
-    text_bytes = full_text.encode("utf-8")
     matches = list(HEADING_RE.finditer(full_text))
 
     if not matches:

@@ -1636,7 +1636,8 @@
             "kind": "call",
             "qualified_name_regex": "^(tokenize|vault\\.store|mask_pan)$"
           }
-        ]
+        ],
+        "detect_pan_literals": true
       },
       "target_globs": [
         "**/*.py"
@@ -1682,12 +1683,10 @@
       "control_id": "PCI-DSS-6.2.4",
       "kind": "llm_judge",
       "spec": {
-        "check_type": "file_exists",
-        "required_files": [
-          "SECURITY.md"
-        ],
-        "description": "code review process",
-        "remediation": "Create a SECURITY.md documenting your SAST/code review process."
+        "check_type": "llm_assess",
+        "filename": "SECURITY.md",
+        "question": "Does this SECURITY.md credibly describe a SAST-in-CI process satisfying PCI-DSS 6.2.4? Reply with one word: PASS or UNCERTAIN.",
+        "remediation": "Expand SECURITY.md to describe SAST tooling, frequency, and CI gating."
       },
       "target_globs": [
         "**/*.py"

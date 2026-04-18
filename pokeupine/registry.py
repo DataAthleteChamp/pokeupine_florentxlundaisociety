@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from urllib.parse import urlparse
 
 import requests
 from rich.console import Console
@@ -13,6 +14,19 @@ from pokeupine.crypto import verify_signature
 from pokeupine.schemas import Pack
 
 console = Console()
+
+
+def _fetch_json(url: str) -> dict:
+    """Fetch JSON from an http(s):// URL, a file:// URL, or a local path."""
+    parsed = urlparse(url)
+    if parsed.scheme in ("http", "https"):
+        resp = requests.get(url, timeout=30)
+        resp.raise_for_status()
+        return resp.json()
+    if parsed.scheme == "file":
+        return json.loads(Path(parsed.path).read_text(encoding="utf-8"))
+    # Bare local path (no scheme)
+    return json.loads(Path(url).read_text(encoding="utf-8"))
 
 
 def pull_pack(pack_id: str, version: str | None = None) -> Pack:
@@ -29,10 +43,7 @@ def pull_pack(pack_id: str, version: str | None = None) -> Pack:
 
     # Fetch index
     console.print(f"  Fetching registry index from [dim]{REGISTRY_BASE_URL}[/dim]...")
-    index_url = f"{REGISTRY_BASE_URL}/index.json"
-    resp = requests.get(index_url, timeout=30)
-    resp.raise_for_status()
-    index = resp.json()
+    index = _fetch_json(f"{REGISTRY_BASE_URL}/index.json")
 
     # Find the requested pack
     pack_entry = None
@@ -50,9 +61,7 @@ def pull_pack(pack_id: str, version: str | None = None) -> Pack:
 
     # Fetch pack.json
     pack_url = f"{REGISTRY_BASE_URL}/{pack_entry['url']}"
-    resp = requests.get(pack_url, timeout=60)
-    resp.raise_for_status()
-    pack_data = resp.json()
+    pack_data = _fetch_json(pack_url)
 
     pack = Pack(**pack_data)
 

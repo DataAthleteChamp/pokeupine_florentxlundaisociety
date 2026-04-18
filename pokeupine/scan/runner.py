@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from pokeupine.scan.walker import walk_files
-from pokeupine.schemas import Finding, Pack, TestCase
+from pokeupine.schemas import Finding, Pack
 
 
 # Engine registry: maps TestKind → engine module

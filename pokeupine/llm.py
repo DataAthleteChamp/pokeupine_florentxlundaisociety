@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import json
-from pathlib import Path
 
 from pokeupine.config import LLM_CACHE_DIR
 
