@@ -24,6 +24,9 @@ env/
 .pokeupine/
 .cache/
 
+# Ingestion data artifacts (large, regenerable)
+ingestion/data/
+
 # OS
 .DS_Store
 Thumbs.db

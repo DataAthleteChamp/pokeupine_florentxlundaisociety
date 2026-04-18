@@ -66,7 +66,12 @@ def pull_pack(pack_id: str, version: str | None = None) -> Pack:
     if sig_valid:
         console.print("[green]✓ verified[/green]")
     else:
-        console.print("[yellow]⚠ signature verification skipped (key not configured)[/yellow]")
+        console.print("[red]✗ FAILED[/red]")
+        console.print(
+            "[red]Error:[/red] Pack signature verification failed. "
+            "The pack may have been tampered with."
+        )
+        raise SystemExit(1)
 
     # Cache locally
     cache_dir = PACKS_DIR / pack_id / target_version

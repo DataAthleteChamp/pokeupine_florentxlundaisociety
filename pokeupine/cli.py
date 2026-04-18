@@ -105,6 +105,20 @@ def scan(
     pack_data = json.loads(pack_json.read_text())
     pack = Pack(**pack_data)
 
+    # Verify pack signature before using it
+    from pokeupine.crypto import verify_signature
+
+    sig_valid = verify_signature(
+        pack.manifest.merkle_root_signature,
+        pack.manifest.merkle_root,
+    )
+    if not sig_valid:
+        console.print(
+            "[red]Error:[/red] Pack signature verification failed. "
+            "Run [bold]pokeupine pull[/bold] to re-fetch."
+        )
+        raise typer.Exit(1)
+
     console.print(
         f"Scanning [bold]{target}[/bold]  "
         f"(1 pack: {pack.manifest.id}@{pack.manifest.version})\n"

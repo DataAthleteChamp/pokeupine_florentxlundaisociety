@@ -13,7 +13,7 @@
         "4.0.0"
       ],
       "url": "packs/pci-dss/4.0.0/pack.json",
-      "controls_count": 6,
+      "controls_count": 36,
       "tests_count": 6
     }
   ]

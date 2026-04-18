@@ -17,7 +17,7 @@ REGISTRY_BASE_URL = (
 
 # Hard-coded registry public key (ed25519, hex-encoded)
 # Generated once; the private key is used only during ingestion/signing
-REGISTRY_PUBLIC_KEY_HEX = "16ff47bb16c8a7d8e6532fa5e81192fff72fd55d4604c50072cbde8ee0c35894"
+REGISTRY_PUBLIC_KEY_HEX = "fb1b999d78d89f1f959467862db62c68dcfd9df22f98d8521f4192e197f480c7"
 
 
 def ensure_dirs() -> None:

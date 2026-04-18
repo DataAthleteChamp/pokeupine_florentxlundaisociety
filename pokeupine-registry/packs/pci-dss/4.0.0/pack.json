@@ -4,29 +4,1405 @@
     "version": "4.0.0",
     "title": "Payment Card Industry Data Security Standard v4.0",
     "source_url": "https://www.pcisecuritystandards.org/document_library/",
-    "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
-    "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
-    "merkle_root": "5dcc516d6df1dce49670c090c432225da7e1608a84037d5b96835b9fb04aaa42",
-    "merkle_root_signature": "624094d293b0292ea5e12ad5090fbe9ccd170a42d96dfcfc9067d98f7dcbe7841e14602d099f47dbf1d5dc1555232d1f5092fd9710c85785d200dc7d59001a07",
+    "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+    "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+    "merkle_root": "5f1c13761bacafef0bfa6a0392c86f3eff7d50a3835ab3ee736bfc229fbb520a",
+    "merkle_root_signature": "32999ce826a220169ed95a5cdba5db7db6285c7f401c210634f4e378db2ab6a6eb4db3c6990bf6bfa1c12590f8fdf78d94b73c16049280d1e7b8139f8052170b",
     "signing_key_id": "registry-2026",
-    "controls_count": 6,
+    "controls_count": 36,
     "tests_count": 6
   },
   "controls": [
     {
-      "id": "PCI-DSS-3.3.1",
-      "title": "Sensitive Authentication Data not stored after authorization",
-      "clause_text": "SAD is not retained after authorization, even if encrypted. All sensitive authentication data received is rendered unrecoverable upon completion of the authorization process.",
-      "requirement": "Never persist CVV/CVC. Delete SAD immediately after authorization.",
+      "id": "PCI-DSS-3.3",
+      "title": "Prohibition of Sensitive Authentication Data Storage",
+      "clause_text": "Sensitive authentication data (SAD) is not stored after authorization.",
+      "requirement": "Organizations must not store sensitive authentication data after the authorization process is complete",
       "severity": "critical",
       "provenance": {
-        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
-        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
-        "extractor": "pymupdf-1.24.10",
-        "page": 47,
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 77,
         "byte_range": [
-          0,
-          174
+          163323,
+          163393
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "27d3107f1ecd5181d27b000198a3c5e98e742d10d51774b247f7fe84cf4ae233"
+          ],
+          [
+            "R",
+            "127648dc23df9bb6c42e3a4a7cbc2fbb9ec0fb7a1ef932c8c2c4a07f7f71d631"
+          ],
+          [
+            "R",
+            "36b2c26dc3a953cc7839fbc04f634f3ccc83e513325b7cbec7a9f8a61b9dee0b"
+          ],
+          [
+            "R",
+            "82b90ce3c80f57ac7727ed601125d9700a0feacbf41afa3139e58f46fcfacf54"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-3.4",
+      "title": "Restrict Access to Full PAN Displays and Copy Functions",
+      "clause_text": "Access to displays of full PAN and ability to copy PAN are restricted.",
+      "requirement": "Organizations must implement restrictions on access to displays showing full primary account numbers and prevent unauthorized copying of PAN data.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 77,
+        "byte_range": [
+          163401,
+          163471
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "f3e4483337067272587d779bc010e5e5a463974dfb1db6f52d68f1b3bb463f4d"
+          ],
+          [
+            "R",
+            "127648dc23df9bb6c42e3a4a7cbc2fbb9ec0fb7a1ef932c8c2c4a07f7f71d631"
+          ],
+          [
+            "R",
+            "36b2c26dc3a953cc7839fbc04f634f3ccc83e513325b7cbec7a9f8a61b9dee0b"
+          ],
+          [
+            "R",
+            "82b90ce3c80f57ac7727ed601125d9700a0feacbf41afa3139e58f46fcfacf54"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-3.5",
+      "title": "Primary Account Number Security in Storage",
+      "clause_text": "Primary account number (PAN) is secured wherever it is stored.",
+      "requirement": "Organizations must implement security controls to protect primary account numbers in all storage locations and systems where they are maintained.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 77,
+        "byte_range": [
+          163478,
+          163540
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "8b5bd7ee6a83afec447516da5024ba7a9522e21e01c2a9848a4036058c99c8da"
+          ],
+          [
+            "L",
+            "da8df61534f5b677778bc5c8d2f0c690b4bc58d294a106e870b53803bed4b0b7"
+          ],
+          [
+            "R",
+            "36b2c26dc3a953cc7839fbc04f634f3ccc83e513325b7cbec7a9f8a61b9dee0b"
+          ],
+          [
+            "R",
+            "82b90ce3c80f57ac7727ed601125d9700a0feacbf41afa3139e58f46fcfacf54"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-3.3.1",
+      "title": "Sensitive Authentication Data Not Stored After Authorization",
+      "clause_text": "SAD is not stored after authorization, even if encrypted. All sensitive authentication data received is rendered unrecoverable upon completion of the authorization process.",
+      "requirement": "Organizations must not store sensitive authentication data after authorization is complete and must render any received sensitive authentication data unrecoverable upon completion of the authorization process.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 82,
+        "byte_range": [
+          171751,
+          171923
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "c4d6f93c394098e9490074df2451f3d98f9fe1179373f052881080094bbcad8c"
+          ],
+          [
+            "L",
+            "da8df61534f5b677778bc5c8d2f0c690b4bc58d294a106e870b53803bed4b0b7"
+          ],
+          [
+            "R",
+            "36b2c26dc3a953cc7839fbc04f634f3ccc83e513325b7cbec7a9f8a61b9dee0b"
+          ],
+          [
+            "R",
+            "82b90ce3c80f57ac7727ed601125d9700a0feacbf41afa3139e58f46fcfacf54"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-3.3.1.1",
+      "title": "Full Track Data Not Stored After Authorization",
+      "clause_text": "The full contents of any track are not stored upon completion of the authorization process.",
+      "requirement": "Organizations must not store the full contents of any track data from payment cards upon completion of the authorization process.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 82,
+        "byte_range": [
+          174110,
+          174201
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "3bba8dcbcc412660693f0158991339d1ad03386010d0b7e477a2ed11caaa8df2"
+          ],
+          [
+            "R",
+            "b276b6635d332383dbe2ca2fcbcd530efc16d6e4b587cbd373392b575f2285ba"
+          ],
+          [
+            "L",
+            "420edfa1a42784363cdff43e063aafc25b17e810a8be5ae26300ba10aa6de893"
+          ],
+          [
+            "R",
+            "82b90ce3c80f57ac7727ed601125d9700a0feacbf41afa3139e58f46fcfacf54"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-3.3.1.2",
+      "title": "Card Verification Code Not Stored After Authorization",
+      "clause_text": "The card verification code is not stored upon completion of the authorization process.",
+      "requirement": "Organizations must not store card verification codes after the authorization process is complete.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 82,
+        "byte_range": [
+          176040,
+          176126
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "94a4f40e38dfb49856116eced245ae9676a244ef634b571e4839d1daf40eb24a"
+          ],
+          [
+            "R",
+            "b276b6635d332383dbe2ca2fcbcd530efc16d6e4b587cbd373392b575f2285ba"
+          ],
+          [
+            "L",
+            "420edfa1a42784363cdff43e063aafc25b17e810a8be5ae26300ba10aa6de893"
+          ],
+          [
+            "R",
+            "82b90ce3c80f57ac7727ed601125d9700a0feacbf41afa3139e58f46fcfacf54"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-3.3.1.3",
+      "title": "PIN and PIN Block Not Stored After Authorization",
+      "clause_text": "The personal identification number (PIN) and the PIN block are not stored upon completion of the authorization process.",
+      "requirement": "Organizations must not store personal identification numbers (PINs) and PIN blocks after the authorization process is complete.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 82,
+        "byte_range": [
+          177552,
+          177671
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "c288d9543de5d02a311e5ebff10ec6d60116e279d4723d1b7bf2fa04bb34a7eb"
+          ],
+          [
+            "L",
+            "c6b22203640993968bbc81c57758967586c0d80de0e4bb0e2e0dc3b1a98a8175"
+          ],
+          [
+            "L",
+            "420edfa1a42784363cdff43e063aafc25b17e810a8be5ae26300ba10aa6de893"
+          ],
+          [
+            "R",
+            "82b90ce3c80f57ac7727ed601125d9700a0feacbf41afa3139e58f46fcfacf54"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-3.3.2",
+      "title": "Encryption of SAD stored before authorization completion",
+      "clause_text": "SAD that is stored electronically prior to completion of authorization is encrypted using strong cryptography.",
+      "requirement": "Sensitive authentication data that is stored electronically before authorization is completed must be encrypted using strong cryptographic methods.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 86,
+        "byte_range": [
+          178839,
+          178949
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "c5be04233b6fc2c6c3b87defd1ad04ec27deac183ba52aa4cd3ee90cf66bcb34"
+          ],
+          [
+            "L",
+            "c6b22203640993968bbc81c57758967586c0d80de0e4bb0e2e0dc3b1a98a8175"
+          ],
+          [
+            "L",
+            "420edfa1a42784363cdff43e063aafc25b17e810a8be5ae26300ba10aa6de893"
+          ],
+          [
+            "R",
+            "82b90ce3c80f57ac7727ed601125d9700a0feacbf41afa3139e58f46fcfacf54"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-3.4.1",
+      "title": "PAN Masking When Displayed",
+      "clause_text": "PAN is masked when displayed (the BIN and last four digits are the maximum number of digits to be displayed), such that only personnel with a legitimate business need can see more than the BIN and last four digits of the PAN.",
+      "requirement": "Primary Account Numbers must be masked during display, showing only the Bank Identification Number and last four digits, with full PAN access restricted to personnel with documented legitimate business need.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 90,
+        "byte_range": [
+          185120,
+          185345
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "80ac6cb4cfdf499715efb38c954f538a3ca4d38bdfbd8f6c88dc08cab1d3e6fd"
+          ],
+          [
+            "R",
+            "b1cb0cab34e8dc96aefcc2f76975e90b2084adb6981dec4f56760328ee7ccb98"
+          ],
+          [
+            "R",
+            "6b83a25ee5fe22c205e3fcc811ae276ca93e7b22e19b46cd47515464e984d03b"
+          ],
+          [
+            "L",
+            "5a137f1336996946db9f757599bf6c1c0cd74ef0af9e39d499b787378c5e1c2b"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-4.2",
+      "title": "PAN Protection with Strong Cryptography During Transmission",
+      "clause_text": "PAN is protected with strong cryptography during transmission",
+      "requirement": "Primary account numbers (PAN) must be protected using strong cryptographic methods when transmitted over networks",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 113,
+        "byte_range": [
+          236686,
+          236747
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "271d1bd310729c68c6a246a4cf9fab9e586081134a98575ce397e4723ea43e8c"
+          ],
+          [
+            "R",
+            "b1cb0cab34e8dc96aefcc2f76975e90b2084adb6981dec4f56760328ee7ccb98"
+          ],
+          [
+            "R",
+            "6b83a25ee5fe22c205e3fcc811ae276ca93e7b22e19b46cd47515464e984d03b"
+          ],
+          [
+            "L",
+            "5a137f1336996946db9f757599bf6c1c0cd74ef0af9e39d499b787378c5e1c2b"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-4.2.1.2",
+      "title": "Wireless Network Cryptography",
+      "clause_text": "4.2.1.2 Wireless networks transmitting PAN or connected to the CDE use industry best practices to implement strong cryptography for authentication and transmission.",
+      "requirement": "Wireless networks that transmit PAN or connect to the cardholder data environment must implement strong cryptography following industry best practices for both authentication and data transmission to prevent unauthorized access and eavesdropping.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 118,
+        "byte_range": [
+          244690,
+          244854
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "ba7cac2286bc7b732b2591b38f5afbadfef78252c0b2baa39def231ce3befa3f"
+          ],
+          [
+            "L",
+            "6e54fc0e8b72da0c3f74403642aea6d7a82854a9d6366d0bea7d5e7d49f51728"
+          ],
+          [
+            "R",
+            "6b83a25ee5fe22c205e3fcc811ae276ca93e7b22e19b46cd47515464e984d03b"
+          ],
+          [
+            "L",
+            "5a137f1336996946db9f757599bf6c1c0cd74ef0af9e39d499b787378c5e1c2b"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-4.2.2",
+      "title": "PAN Protection with Strong Cryptography in End-User Messaging",
+      "clause_text": "PAN is secured with strong cryptography whenever it is sent via end-user messaging technologies.",
+      "requirement": "Organizations must implement strong cryptographic protection for Primary Account Numbers (PAN) when transmitted through end-user messaging technologies such as email, instant messaging, or chat applications.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 121,
+        "byte_range": [
+          246037,
+          246133
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "b6ca691aa14ceca2883083d24a027c35005b0ac1e4c81c239c848db808dca800"
+          ],
+          [
+            "L",
+            "6e54fc0e8b72da0c3f74403642aea6d7a82854a9d6366d0bea7d5e7d49f51728"
+          ],
+          [
+            "R",
+            "6b83a25ee5fe22c205e3fcc811ae276ca93e7b22e19b46cd47515464e984d03b"
+          ],
+          [
+            "L",
+            "5a137f1336996946db9f757599bf6c1c0cd74ef0af9e39d499b787378c5e1c2b"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-6.2",
+      "title": "Secure Development of Bespoke and Custom Software",
+      "clause_text": "Bespoke and custom software are developed securely.",
+      "requirement": "Organizations must ensure that any custom or bespoke software they develop follows secure development practices",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 137,
+        "byte_range": [
+          282659,
+          282710
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "095110da1aa61c06e65c059850c0a84e44d1a3a8c7ba2601f0703924ea8a97a5"
+          ],
+          [
+            "R",
+            "6ffa3d08635ee200186f7ab4c7076a7b0fe2cdc06b5311b732627b486c8cb947"
+          ],
+          [
+            "L",
+            "ffd173ac4e800d86d40062438f98360744035a008568291e37869144cf0040e7"
+          ],
+          [
+            "L",
+            "5a137f1336996946db9f757599bf6c1c0cd74ef0af9e39d499b787378c5e1c2b"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-6.2.2",
+      "title": "Software Development Personnel Security Training",
+      "clause_text": "Software development personnel working on bespoke and custom software are trained at least once every 12 months as follows:\n\u2022 On software security relevant to their job function and development languages.\n\u2022 Including secure software design and secure coding techniques.\n\u2022 Including, if security testing tools are used, how to use the tools for detecting vulnerabilities in software.",
+      "requirement": "Software development personnel must receive annual training on software security relevant to their job function, secure design and coding techniques, and security testing tools if applicable",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 141,
+        "byte_range": [
+          283630,
+          284018
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "f6cb159fa83e9332a074f9340f13fe71f4285accd6e1d7d485726a2f722f5710"
+          ],
+          [
+            "R",
+            "6ffa3d08635ee200186f7ab4c7076a7b0fe2cdc06b5311b732627b486c8cb947"
+          ],
+          [
+            "L",
+            "ffd173ac4e800d86d40062438f98360744035a008568291e37869144cf0040e7"
+          ],
+          [
+            "L",
+            "5a137f1336996946db9f757599bf6c1c0cd74ef0af9e39d499b787378c5e1c2b"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-6.2.3",
+      "title": "Code Review for Bespoke and Custom Software",
+      "clause_text": "Bespoke and custom software is reviewed prior to being released into production or to customers, to identify and correct potential coding vulnerabilities, as follows: \u2022 Code reviews ensure code is developed according to secure coding guidelines. \u2022 Code reviews look for both existing and emerging software vulnerabilities. \u2022 Appropriate corrections are implemented prior to release.",
+      "requirement": "All bespoke and custom software must undergo code reviews before production release to identify vulnerabilities, ensure secure coding guidelines compliance, and implement necessary corrections",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 142,
+        "byte_range": [
+          286308,
+          286696
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "2bb2a65528c576fb04302fdc4d38cc8abd7dd46fafa4486089c2e84c52a42605"
+          ],
+          [
+            "L",
+            "deb5c49eb94f05873982211de82e0f6cdd8a8ed7a67e7825bb45dca5414e20a5"
+          ],
+          [
+            "L",
+            "ffd173ac4e800d86d40062438f98360744035a008568291e37869144cf0040e7"
+          ],
+          [
+            "L",
+            "5a137f1336996946db9f757599bf6c1c0cd74ef0af9e39d499b787378c5e1c2b"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-6.2.3.1",
+      "title": "Manual Code Review Requirements",
+      "clause_text": "If manual code reviews are performed for bespoke and custom software prior to release to production, code changes are: \u2022 Reviewed by individuals other than the originating code author, and who are knowledgeable about code-review techniques and secure coding practices. \u2022 Reviewed and approved by management prior to release.",
+      "requirement": "Manual code reviews must be conducted by qualified individuals other than the original author and require management approval before release to production",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 142,
+        "byte_range": [
+          289226,
+          289554
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "d5e21f97bd26367cbffae33edae5a1458d53b37fdfc3b5ea7f68c6bf5a0724d5"
+          ],
+          [
+            "L",
+            "deb5c49eb94f05873982211de82e0f6cdd8a8ed7a67e7825bb45dca5414e20a5"
+          ],
+          [
+            "L",
+            "ffd173ac4e800d86d40062438f98360744035a008568291e37869144cf0040e7"
+          ],
+          [
+            "L",
+            "5a137f1336996946db9f757599bf6c1c0cd74ef0af9e39d499b787378c5e1c2b"
+          ],
+          [
+            "R",
+            "edef475ac5f3426c4dee02b9afbce764e22c6b2cb1fd26a642ed7a2f05cedaa1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-6.2.4",
+      "title": "Software Engineering Techniques for Attack Prevention",
+      "clause_text": "Examine documented procedures and interview responsible software development personnel to verify that software engineering techniques or other methods are defined and in use by developers of bespoke and custom software to prevent or mitigate all common software attacks as specified in this requirement.",
+      "requirement": "Organizations must define and implement software engineering techniques or other methods for developers of bespoke and custom software to prevent or mitigate common software attacks",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 144,
+        "byte_range": [
+          293236,
+          293539
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "62adedfb4ee0da58bcd1cbdfa88a5e537cb58f94b6987ee69cd649414f4c7593"
+          ],
+          [
+            "R",
+            "cdc9719b380021edc02a4a8515600f637500e8f81fa0b8d2dd3b81067f384416"
+          ],
+          [
+            "R",
+            "ca6655eaa8cb34352fcda25ce229bb04b41878309581697a7a62314b276870d5"
+          ],
+          [
+            "R",
+            "7a124a11fa72b87887782025da3203dad3e81041fb95943baf40c3dd2aa1c2ae"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-8.3",
+      "title": "Strong Authentication Management",
+      "clause_text": "Strong authentication for users and administrators is established and managed.",
+      "requirement": "Organizations must establish and manage strong authentication mechanisms for both regular users and administrators",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 177,
+        "byte_range": [
+          368536,
+          368614
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "5ddd7b95326ca990b8d3753374c157dcd26c942acc55ba69d96701c4aabee3bb"
+          ],
+          [
+            "R",
+            "cdc9719b380021edc02a4a8515600f637500e8f81fa0b8d2dd3b81067f384416"
+          ],
+          [
+            "R",
+            "ca6655eaa8cb34352fcda25ce229bb04b41878309581697a7a62314b276870d5"
+          ],
+          [
+            "R",
+            "7a124a11fa72b87887782025da3203dad3e81041fb95943baf40c3dd2aa1c2ae"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-8.3.2",
+      "title": "Strong cryptography for authentication factors",
+      "clause_text": "Strong cryptography is used to render all authentication factors unreadable during transmission and storage on all system components.",
+      "requirement": "All authentication factors must be protected using strong cryptography to make them unreadable when transmitted or stored on any system component.",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 190,
+        "byte_range": [
+          384094,
+          384227
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "fce45ea21ddb03b4ba79e09459c5c5e6d1a6bb47f95082b45338d15245315934"
+          ],
+          [
+            "L",
+            "8af5d85606148e8e0aef77b862855f7170547f923a8bf3e0d98b1ddcf743b122"
+          ],
+          [
+            "R",
+            "ca6655eaa8cb34352fcda25ce229bb04b41878309581697a7a62314b276870d5"
+          ],
+          [
+            "R",
+            "7a124a11fa72b87887782025da3203dad3e81041fb95943baf40c3dd2aa1c2ae"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-8.3.3",
+      "title": "User Identity Verification Before Authentication Factor Modification",
+      "clause_text": "User identity is verified before modifying any authentication factor.",
+      "requirement": "Organizations must verify a user's identity before allowing any changes to authentication factors such as passwords, tokens, or biometric data.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 191,
+        "byte_range": [
+          385861,
+          385930
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "fb54a2e99c02b455337e9c13b113fca4caa7fe768e467b7c193d2235225b9662"
+          ],
+          [
+            "L",
+            "8af5d85606148e8e0aef77b862855f7170547f923a8bf3e0d98b1ddcf743b122"
+          ],
+          [
+            "R",
+            "ca6655eaa8cb34352fcda25ce229bb04b41878309581697a7a62314b276870d5"
+          ],
+          [
+            "R",
+            "7a124a11fa72b87887782025da3203dad3e81041fb95943baf40c3dd2aa1c2ae"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-8.3.7",
+      "title": "Password History Restriction",
+      "clause_text": "Individuals are not allowed to submit a new password/passphrase that is the same as any of the last four passwords/passphrases used.",
+      "requirement": "Users must not be able to reuse any of their last four passwords or passphrases when creating a new one",
+      "severity": "medium",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 194,
+        "byte_range": [
+          392903,
+          393035
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "79a8f18fd02b80662505e7e2bf737e4ac6f3951b74489fb8080767954f7ae5db"
+          ],
+          [
+            "R",
+            "128bbadb9131bc9b29f5e6e471cfe786a33ba818c064ebdb5601064ec88f566e"
+          ],
+          [
+            "L",
+            "5def8cc445eb39b1ef61ffcf40eb1615d84820eb5566f3ebb39686a243f967a3"
+          ],
+          [
+            "R",
+            "7a124a11fa72b87887782025da3203dad3e81041fb95943baf40c3dd2aa1c2ae"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-8.3.8",
+      "title": "Authentication Policies Documentation and Communication",
+      "clause_text": "Authentication policies and procedures are documented and communicated to all users including: \u2022 Guidance on selecting strong authentication factors. \u2022 Guidance for how users should protect their authentication factors. \u2022 Instructions not to reuse previously used passwords/passphrases. \u2022 Instructions to change passwords/passphrases if there is any suspicion or knowledge that the password/passphrases have been compromised and how to report the incident.",
+      "requirement": "Organizations must document and communicate authentication policies to all users, including guidance on selecting and protecting authentication factors, instructions against password reuse, and procedures for changing compromised passwords and reporting incidents.",
+      "severity": "medium",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 195,
+        "byte_range": [
+          394995,
+          395459
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "d6ca4fc07ca1afa04b559484035ddd8ea0fadc247213ba620162dd8642980105"
+          ],
+          [
+            "R",
+            "128bbadb9131bc9b29f5e6e471cfe786a33ba818c064ebdb5601064ec88f566e"
+          ],
+          [
+            "L",
+            "5def8cc445eb39b1ef61ffcf40eb1615d84820eb5566f3ebb39686a243f967a3"
+          ],
+          [
+            "R",
+            "7a124a11fa72b87887782025da3203dad3e81041fb95943baf40c3dd2aa1c2ae"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-8.3.9",
+      "title": "Password/Passphrase Management for Single-Factor Authentication",
+      "clause_text": "If passwords/passphrases are used as the only authentication factor for user access, inspect system configuration settings to verify that passwords/passphrases are managed in accordance with ONE of the elements specified in this requirement.",
+      "requirement": "When passwords or passphrases are the sole authentication method, they must be managed according to specified security elements to prevent indefinite use of compromised credentials",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 196,
+        "byte_range": [
+          397654,
+          397895
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "ac0f10c8263b42ba4efdc9a62e4fa4fb2ba98c75ab8ad0c5ea44aafc2aa10fe0"
+          ],
+          [
+            "L",
+            "7387c4c28d5d19816e6d1b02abd82efb8703cbacbc8c674ee08bd731fa374517"
+          ],
+          [
+            "L",
+            "5def8cc445eb39b1ef61ffcf40eb1615d84820eb5566f3ebb39686a243f967a3"
+          ],
+          [
+            "R",
+            "7a124a11fa72b87887782025da3203dad3e81041fb95943baf40c3dd2aa1c2ae"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2",
+      "title": "Audit logs for anomaly detection and forensic analysis",
+      "clause_text": "Audit logs are implemented to support the detection of anomalies and suspicious activity, and the forensic analysis of events.",
+      "requirement": "Organizations must implement audit logs that can detect anomalies and suspicious activity and support forensic analysis of security events.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 239,
+        "byte_range": [
+          489629,
+          489755
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "2d26945b67d29b6a529059c818f8b0e457031e388a4d719dfa5d21d114205366"
+          ],
+          [
+            "L",
+            "7387c4c28d5d19816e6d1b02abd82efb8703cbacbc8c674ee08bd731fa374517"
+          ],
+          [
+            "L",
+            "5def8cc445eb39b1ef61ffcf40eb1615d84820eb5566f3ebb39686a243f967a3"
+          ],
+          [
+            "R",
+            "7a124a11fa72b87887782025da3203dad3e81041fb95943baf40c3dd2aa1c2ae"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.1",
+      "title": "Audit Logs Enabled for All System Components",
+      "clause_text": "Audit logs are enabled and active for all system components and cardholder data.",
+      "requirement": "Organizations must ensure that audit logging is enabled and actively running on all system components that process or store cardholder data.",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 242,
+        "byte_range": [
+          482187,
+          482267
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "f3bcde0ac827932940f8aeb78fc18d3468f0a0e00e15382664700e6bab55c964"
+          ],
+          [
+            "R",
+            "7e902cf0c338cf644c960398a1058968dcd57003b8340c52d3474282b3ae09a9"
+          ],
+          [
+            "R",
+            "b05bad45d1c95efbf2fe400b8c97bb93a223b1c07e7b1ed36590c8344271d9e3"
+          ],
+          [
+            "L",
+            "bc6b075b3ff10e5900a6c3ca0da22c2371c21bbb7a24232cf53ca8bc21929550"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.1.1",
+      "title": "Audit Logging of Individual User Access to Cardholder Data",
+      "clause_text": "10.2.1.1 Audit logs capture all individual user access to cardholder data.",
+      "requirement": "Organizations must configure audit logs to capture and record all instances of individual user access to cardholder data",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 242,
+        "byte_range": [
+          483019,
+          483093
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "c7e0b9d5c20aa64203fe91d83b18a00e2568495a46e2e25f3a7ec11e24cb66d1"
+          ],
+          [
+            "R",
+            "7e902cf0c338cf644c960398a1058968dcd57003b8340c52d3474282b3ae09a9"
+          ],
+          [
+            "R",
+            "b05bad45d1c95efbf2fe400b8c97bb93a223b1c07e7b1ed36590c8344271d9e3"
+          ],
+          [
+            "L",
+            "bc6b075b3ff10e5900a6c3ca0da22c2371c21bbb7a24232cf53ca8bc21929550"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.1.2",
+      "title": "Audit Logging of Administrative Access Actions",
+      "clause_text": "10.2.1.2 Audit logs capture all actions taken by any individual with administrative access, including any interactive use of application or system accounts.",
+      "requirement": "Organizations must configure audit logs to capture all actions performed by individuals with administrative access, including interactive use of application or system accounts",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 242,
+        "byte_range": [
+          484235,
+          484391
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "5a73e914a8d146dbab62895bc716ce8d495292ae4406ca32a0d825c01d0bd2d8"
+          ],
+          [
+            "L",
+            "ae4ab9de14447312511f14c5add705387f5f5e2366538b3d29aaa8a3d1ca9917"
+          ],
+          [
+            "R",
+            "b05bad45d1c95efbf2fe400b8c97bb93a223b1c07e7b1ed36590c8344271d9e3"
+          ],
+          [
+            "L",
+            "bc6b075b3ff10e5900a6c3ca0da22c2371c21bbb7a24232cf53ca8bc21929550"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.1.3",
+      "title": "Audit Logging of Audit Log Access",
+      "clause_text": "10.2.1.3 Audit logs capture all access to audit logs.",
+      "requirement": "Organizations must configure audit logs to capture all access attempts to the audit logs themselves",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 242,
+        "byte_range": [
+          499000,
+          499053
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "9b1f2b9568bc687862689fc0d253241b630f90a65f94d08e5c0fb4f1b8d76f59"
+          ],
+          [
+            "L",
+            "ae4ab9de14447312511f14c5add705387f5f5e2366538b3d29aaa8a3d1ca9917"
+          ],
+          [
+            "R",
+            "b05bad45d1c95efbf2fe400b8c97bb93a223b1c07e7b1ed36590c8344271d9e3"
+          ],
+          [
+            "L",
+            "bc6b075b3ff10e5900a6c3ca0da22c2371c21bbb7a24232cf53ca8bc21929550"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.1.4",
+      "title": "Audit Logging of Invalid Access Attempts",
+      "clause_text": "10.2.1.4 Audit logs capture all invalid logical access attempts.",
+      "requirement": "Organizations must configure audit logs to capture all invalid logical access attempts to systems",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 242,
+        "byte_range": [
+          485553,
+          485617
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "754d49c6ad145104deb6098f4c345da5f56b356ddd805b2ce5f9435222312b36"
+          ],
+          [
+            "R",
+            "c45c5470f1363187b6cc1c129c7cb773e44e18fafb8c3167197e52a399ab535c"
+          ],
+          [
+            "L",
+            "02418383f3631ad514f1aaa0b2238062ff22ad369d8e5c513317da34a4766c70"
+          ],
+          [
+            "L",
+            "bc6b075b3ff10e5900a6c3ca0da22c2371c21bbb7a24232cf53ca8bc21929550"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.1.5",
+      "title": "Audit Logging of Authentication Credential Changes",
+      "clause_text": "10.2.1.5 Audit logs capture all changes to identification and authentication credentials including, but not limited to: \u2022 Creation of new accounts. \u2022 Elevation of privileges. \u2022 All changes, additions, or deletions to accounts with administrative access.",
+      "requirement": "Organizations must configure audit logs to capture all changes to identification and authentication credentials, including account creation, privilege elevation, and administrative account modifications",
+      "severity": "critical",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 242,
+        "byte_range": [
+          486766,
+          487025
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "0ed5092cb4b96290b3e85cb94a05e5881651c09ffbb3a9e68eb601634c355c2a"
+          ],
+          [
+            "R",
+            "c45c5470f1363187b6cc1c129c7cb773e44e18fafb8c3167197e52a399ab535c"
+          ],
+          [
+            "L",
+            "02418383f3631ad514f1aaa0b2238062ff22ad369d8e5c513317da34a4766c70"
+          ],
+          [
+            "L",
+            "bc6b075b3ff10e5900a6c3ca0da22c2371c21bbb7a24232cf53ca8bc21929550"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.1.6",
+      "title": "Audit Logging of Audit Log Status Changes",
+      "clause_text": "10.2.1.6 Audit logs capture the following: \u2022 All initialization of new audit logs, and \u2022 All starting, stopping, or pausing of the existing audit logs.",
+      "requirement": "Organizations must configure audit logs to capture initialization of new audit logs and any starting, stopping, or pausing of existing audit logs",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 242,
+        "byte_range": [
+          487672,
+          487827
+        ],
+        "merkle_proof": [
+          [
+            "R",
+            "a6da4fbe8bb4e2f99f62f80622bb8f25316be297b8d71d97758ad0d8ad93a5c2"
+          ],
+          [
+            "L",
+            "366c0510e068054ed44c3672e08b9174f19171f49139b096ba28b435f2406c61"
+          ],
+          [
+            "L",
+            "02418383f3631ad514f1aaa0b2238062ff22ad369d8e5c513317da34a4766c70"
+          ],
+          [
+            "L",
+            "bc6b075b3ff10e5900a6c3ca0da22c2371c21bbb7a24232cf53ca8bc21929550"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.1.7",
+      "title": "Audit Logging of System-Level Object Changes",
+      "clause_text": "10.2.1.7 Audit logs capture all creation and deletion of system-level objects.",
+      "requirement": "Organizations must configure audit logs to capture all creation and deletion of system-level objects",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 242,
+        "byte_range": [
+          488658,
+          488736
+        ],
+        "merkle_proof": [
+          [
+            "L",
+            "6637725bda13c3bfa3cd94acd1242cba3f7106384158d4dffc8a5efa5b480835"
+          ],
+          [
+            "L",
+            "366c0510e068054ed44c3672e08b9174f19171f49139b096ba28b435f2406c61"
+          ],
+          [
+            "L",
+            "02418383f3631ad514f1aaa0b2238062ff22ad369d8e5c513317da34a4766c70"
+          ],
+          [
+            "L",
+            "bc6b075b3ff10e5900a6c3ca0da22c2371c21bbb7a24232cf53ca8bc21929550"
+          ],
+          [
+            "L",
+            "dd8fccedb8cd5d2b392efc6c752b4b97e673ea39a6400ad420fa5f5401a4eeb1"
+          ],
+          [
+            "R",
+            "eb47eccbe0ee8e25befea6eddf034c9ef4427cc2977399e0b0dc5f6ff732ecba"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "PCI-DSS-10.2.2",
+      "title": "Verify audit log entries contain all required elements for auditable events",
+      "clause_text": "Interview personnel and examine audit log configurations and log data to verify that all elements specified in this requirement are included in log entries for each auditable event (from 10.2.1.1 through 10.2.1.7).",
+      "requirement": "Organizations must ensure that audit log entries contain all specified data elements for each type of auditable event defined in requirements 10.2.1.1 through 10.2.1.7",
+      "severity": "high",
+      "provenance": {
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 246,
+        "byte_range": [
+          489598,
+          489812
         ],
         "merkle_proof": [
           [
@@ -35,11 +1411,23 @@
           ],
           [
             "R",
-            "898c3ac0fb34af7a1e87e2bd3349fe932e3120400ffcd727714e45bfa187da76"
+            "d63423508a5bf3929e75bf3ece4b15a091c415d59955df682e525953ab7931fc"
           ],
           [
             "R",
-            "724150a10b82245287ecddd7ab49350006d85c3b7318f85041f9a5d857fe9ac3"
+            "bc65b0adbb52e9747dd4ba2882248be1e91ce106d777ae90f94b207b4feb053e"
+          ],
+          [
+            "R",
+            "7b134ccc741e398bbb27e68ab253912d90393abbcced65455e933216c4bb962f"
+          ],
+          [
+            "R",
+            "d44b739b855dcd483f2b435d60f4d38e3ea5f8be4698262e763ad38c21ba9238"
+          ],
+          [
+            "L",
+            "f61116c39ae4b198774cd5b85e945295c2a7c5e3b60cbed4924688a0aa0ca460"
           ]
         ]
       }
@@ -51,26 +1439,38 @@
       "requirement": "Tokenize PAN with a PCI-validated provider; store the token only.",
       "severity": "critical",
       "provenance": {
-        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
-        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
-        "extractor": "pymupdf-1.24.10",
-        "page": 52,
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 0,
         "byte_range": [
-          175,
-          431
+          0,
+          256
         ],
         "merkle_proof": [
           [
             "L",
-            "30695c60ecd771cf77029dc64441317d17f6b7dc26f1c9d69fc8fa431892ad6d"
+            "918b9cb33a43b3244216cc6fe7c161e7692a452499639271b14ffafaf484a180"
           ],
           [
             "R",
-            "898c3ac0fb34af7a1e87e2bd3349fe932e3120400ffcd727714e45bfa187da76"
+            "d63423508a5bf3929e75bf3ece4b15a091c415d59955df682e525953ab7931fc"
           ],
           [
             "R",
-            "724150a10b82245287ecddd7ab49350006d85c3b7318f85041f9a5d857fe9ac3"
+            "bc65b0adbb52e9747dd4ba2882248be1e91ce106d777ae90f94b207b4feb053e"
+          ],
+          [
+            "R",
+            "7b134ccc741e398bbb27e68ab253912d90393abbcced65455e933216c4bb962f"
+          ],
+          [
+            "R",
+            "d44b739b855dcd483f2b435d60f4d38e3ea5f8be4698262e763ad38c21ba9238"
+          ],
+          [
+            "L",
+            "f61116c39ae4b198774cd5b85e945295c2a7c5e3b60cbed4924688a0aa0ca460"
           ]
         ]
       }
@@ -79,29 +1479,41 @@
       "id": "PCI-DSS-4.2.1",
       "title": "Strong cryptography for PAN in transit over open, public networks",
       "clause_text": "PAN is secured with strong cryptography whenever it is sent via end-user messaging technologies. Strong cryptography is used to safeguard PAN during transmission over open, public networks.",
-      "requirement": "Use HTTPS (TLS 1.2+) for all PAN transmission. Never send PAN over cleartext HTTP.",
+      "requirement": "Use HTTPS (TLS 1.2+) for all PAN transmission.",
       "severity": "high",
       "provenance": {
-        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
-        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
-        "extractor": "pymupdf-1.24.10",
-        "page": 61,
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 0,
         "byte_range": [
-          432,
-          621
+          0,
+          189
         ],
         "merkle_proof": [
           [
             "R",
-            "54359cd3205274edea5abd96de1485d67bba362a1e7e99d2079e70a3f0f807f8"
+            "8d6722154b382bd7fcd8e949ea5e0cae2921a171f52237f66e910085b3343fe9"
           ],
           [
             "L",
-            "bba72f78b826b5fe82721f4fb8c2db09e423b2f3cf759eb5e3770fb6c697dbed"
+            "65209e9e2439d26bf1933f51638ba320837a6d3e3f53144307a5a51d12135081"
           ],
           [
             "R",
-            "724150a10b82245287ecddd7ab49350006d85c3b7318f85041f9a5d857fe9ac3"
+            "bc65b0adbb52e9747dd4ba2882248be1e91ce106d777ae90f94b207b4feb053e"
+          ],
+          [
+            "R",
+            "7b134ccc741e398bbb27e68ab253912d90393abbcced65455e933216c4bb962f"
+          ],
+          [
+            "R",
+            "d44b739b855dcd483f2b435d60f4d38e3ea5f8be4698262e763ad38c21ba9238"
+          ],
+          [
+            "L",
+            "f61116c39ae4b198774cd5b85e945295c2a7c5e3b60cbed4924688a0aa0ca460"
           ]
         ]
       }
@@ -109,17 +1521,17 @@
     {
       "id": "PCI-DSS-8.3.6",
       "title": "Passwords/passphrases meet minimum complexity requirements",
-      "clause_text": "If passwords/passphrases are used as an authentication factor, they meet the following minimum level of complexity: A minimum length of 12 characters (or if the system does not support 12 characters, a minimum length of eight characters). Contain both numeric and alphabetic characters.",
+      "clause_text": "If passwords/passphrases are used as an authentication factor, they meet the following minimum level of complexity: A minimum length of 12 characters.",
       "requirement": "Set minimum password length to 12 or greater.",
       "severity": "medium",
       "provenance": {
-        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
-        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
-        "extractor": "pymupdf-1.24.10",
-        "page": 112,
+        "source_doc_sha256": "5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7",
+        "text_layer_sha256": "4dfcc0ef4d93603b352b97e31ee91ce1c9d63f7237eff99328e5a3196cee8042",
+        "extractor": "pymupdf-1.24.14",
+        "page": 0,
         "byte_range": [
-          622,
-          908
+          0,
+          150
         ],
         "merkle_proof": [
           [
@@ -128,73 +1540,23 @@
           ],
           [
             "L",
-            "bba72f78b826b5fe82721f4fb8c2db09e423b2f3cf759eb5e3770fb6c697dbed"
+            "65209e9e2439d26bf1933f51638ba320837a6d3e3f53144307a5a51d12135081"
           ],
           [
             "R",
-            "724150a10b82245287ecddd7ab49350006d85c3b7318f85041f9a5d857fe9ac3"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "PCI-DSS-10.2.1",
-      "title": "Audit logs capture all individual user access to cardholder data",
-      "clause_text": "Audit logs are enabled and active for all system components. All individual user accesses to cardholder data are logged. All actions taken by any individual with root or administrative privileges are logged.",
-      "requirement": "Add audit logging to all functions handling cardholder data.",
-      "severity": "high",
-      "provenance": {
-        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
-        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
-        "extractor": "pymupdf-1.24.10",
-        "page": 135,
-        "byte_range": [
-          909,
-          1116
-        ],
-        "merkle_proof": [
-          [
-            "R",
-            "3f239fe2cfc461bf58d4192e28e44e3aec1ef4822f0b36f2e5a1aee65886fd69"
+            "bc65b0adbb52e9747dd4ba2882248be1e91ce106d777ae90f94b207b4feb053e"
           ],
           [
             "R",
-            "648103ade51de89a4d63ce5ca63e4514afdfc849e2ea9b9949c5e11f9c16b35f"
+            "7b134ccc741e398bbb27e68ab253912d90393abbcced65455e933216c4bb962f"
+          ],
+          [
+            "R",
+            "d44b739b855dcd483f2b435d60f4d38e3ea5f8be4698262e763ad38c21ba9238"
           ],
           [
             "L",
-            "81fcb511bca2c5eb67994ee0809f5d3628da7db4e00e58886eb38bbf99e69747"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "PCI-DSS-6.2.4",
-      "title": "Software engineering techniques prevent common coding vulnerabilities",
-      "clause_text": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities in bespoke and custom software. Software is reviewed to confirm it does not contain common coding vulnerabilities.",
-      "requirement": "Document SAST/code review process in SECURITY.md.",
-      "severity": "medium",
-      "provenance": {
-        "source_doc_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
-        "text_layer_sha256": "f0e1d2c3b4a5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1b2a3f4e5d6c7b8a9f0e1",
-        "extractor": "pymupdf-1.24.10",
-        "page": 85,
-        "byte_range": [
-          1117,
-          1412
-        ],
-        "merkle_proof": [
-          [
-            "L",
-            "b61eba65303d80b8e61dd2c807f594cec0f268a103c3838b39667fbdddeef76c"
-          ],
-          [
-            "R",
-            "648103ade51de89a4d63ce5ca63e4514afdfc849e2ea9b9949c5e11f9c16b35f"
-          ],
-          [
-            "L",
-            "81fcb511bca2c5eb67994ee0809f5d3628da7db4e00e58886eb38bbf99e69747"
+            "f61116c39ae4b198774cd5b85e945295c2a7c5e3b60cbed4924688a0aa0ca460"
           ]
         ]
       }
