@@ -60,6 +60,8 @@ def pull(
 def scan(
     target: Path = typer.Argument(help="Path to codebase to scan"),
     pack_id: str = typer.Option("pci-dss", "--pack", "-p", help="Pack to scan against"),
+    output: str = typer.Option("rich", "--output", "-o", help="Output format: rich, json"),
+    exit_code: bool = typer.Option(False, "--exit-code", help="Return non-zero exit code on failures"),
 ) -> None:
     """Scan a codebase against installed regulation packs."""
     if not target.exists():
@@ -119,13 +121,25 @@ def scan(
         )
         raise typer.Exit(1)
 
-    console.print(
-        f"Scanning [bold]{target}[/bold]  "
-        f"(1 pack: {pack.manifest.id}@{pack.manifest.version})\n"
-    )
+    if output != "json":
+        console.print(
+            f"Scanning [bold]{target}[/bold]  "
+            f"(1 pack: {pack.manifest.id}@{pack.manifest.version})\n"
+        )
 
     findings = run_scan(target, pack)
-    print_report(findings, pack)
+
+    if output == "json":
+        import json as json_mod
+        import sys
+
+        json_out = [f.model_dump() for f in findings]
+        sys.stdout.write(json_mod.dumps(json_out, indent=2) + "\n")
+    else:
+        print_report(findings, pack)
+
+    if exit_code and any(f.status == "fail" for f in findings):
+        raise typer.Exit(1)
 
 
 @app.command()

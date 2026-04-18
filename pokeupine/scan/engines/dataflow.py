@@ -317,9 +317,14 @@ class DataflowEngine:
 
             arg_idents = _identifiers_in(args, source_bytes)
             arg_attrs = _attribute_chains_in(args, source_bytes)
+            tainted_field_names = {
+                k.split(".", 1)[1] for k in tainted_fields if "." in k
+            }
             for var_name, source_desc in tainted_vars.items():
                 attr_hit = next(
-                    (a for a in arg_attrs if a.split(".", 1)[0] == var_name),
+                    (a for a in sorted(arg_attrs)
+                     if a.split(".", 1)[0] == var_name
+                     and ("." not in a or a.split(".", 1)[1] in tainted_field_names)),
                     None,
                 )
                 if var_name in arg_idents or attr_hit:

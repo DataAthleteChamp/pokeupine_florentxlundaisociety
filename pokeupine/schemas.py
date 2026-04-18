@@ -45,6 +45,8 @@ class Control(BaseModel):
 class TestCase(BaseModel):
     """A test that checks code against a specific control."""
 
+    __test__ = False  # prevent pytest collection
+
     id: str  # "PCI-DSS-3.3.1::no-cvv-storage"
     control_id: str
     kind: TestKind
